@@ -26,9 +26,9 @@
     "@edx/paragon": "14.5.0",
     "husky": "6.0.0",
     "lerna": "4.0.0",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-router-dom": "5.2.0",
-    "react-test-renderer": "16.14.0"
+    "react-test-renderer": "17.0.2"
   }
 }
