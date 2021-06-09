@@ -48,8 +48,8 @@
   },
   "devDependencies": {
     "@edx/frontend-build": "5.6.14",
-    "@fortawesome/free-solid-svg-icons": "5.8.1",
-    "@fortawesome/react-fontawesome": "0.1.4",
+    "@fortawesome/free-solid-svg-icons": "5.15.3",
+    "@fortawesome/react-fontawesome": "0.1.14",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.6",
     "@testing-library/react-hooks": "3.4.2",
@@ -60,8 +60,8 @@
   "peerDependencies": {
     "@edx/frontend-platform": "1.9.6",
     "@edx/paragon": "14.5.0",
-    "@fortawesome/free-solid-svg-icons": "5.8.1",
-    "@fortawesome/react-fontawesome": "0.1.4",
+    "@fortawesome/free-solid-svg-icons": "5.15.3",
+    "@fortawesome/react-fontawesome": "0.1.14",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-instantsearch-dom": "6.8.3",
