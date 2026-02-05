@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0 (2026-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* consuming applications must now provide paragon from the @openedx scope
+
+* refactor: replace @edx/paragon and @edx/frontend-build
+
+* fix: fixed package issues
+
+* fix: updated dependency
+
+* fix: updated package lock file to fix ci issue
+
+* refactor: updated frontend-platform to v7 along with peer Dependencies
+* Upgrade react-router-dom from v5 to v6.
+Upgrade frontend-platform from v4 to v5.
+
+### Features
+
+* Add .npmrc file to more .gitignore files ([#303](https://github.com/edx/frontend-enterprise/issues/303)) ([d890c21](https://github.com/edx/frontend-enterprise/commit/d890c212c3f8c5ec81e6dee63f68029ad0b00552))
+* add hotjar library ([#264](https://github.com/edx/frontend-enterprise/issues/264)) ([f132ce1](https://github.com/edx/frontend-enterprise/commit/f132ce1716bb64714a8c368a80f673d1e9ef12fc))
+* rename hotjar.js to index.js ([#265](https://github.com/edx/frontend-enterprise/issues/265)) ([8763a3e](https://github.com/edx/frontend-enterprise/commit/8763a3eb7f6862d1f86b70203f1c71626a72ed8e))
+* support React 18 in `@edx/frontend-enterprise-hotjar` ([#435](https://github.com/edx/frontend-enterprise/issues/435)) ([8b2d8f8](https://github.com/edx/frontend-enterprise/commit/8b2d8f83d646d71882137235518e34f8740c2113))
+* update react & react-dom to v17 ([#338](https://github.com/edx/frontend-enterprise/issues/338)) ([b1b548c](https://github.com/edx/frontend-enterprise/commit/b1b548c0ec27572d639f276507a1495b78db9497))
+* updated frontend-build & frontend-platform major versions ([#387](https://github.com/edx/frontend-enterprise/issues/387)) ([e9da78e](https://github.com/edx/frontend-enterprise/commit/e9da78e264c6e5b590eff351b5c1477c0716f928))
+* upgrade react router to v6 ([#344](https://github.com/edx/frontend-enterprise/issues/344)) ([54f6340](https://github.com/edx/frontend-enterprise/commit/54f6340f764a9120bebd654564e0d61918a3cffa))
+* upgraded to node v18, added .nvmrc and updated workflows ([#306](https://github.com/edx/frontend-enterprise/issues/306)) ([0508783](https://github.com/edx/frontend-enterprise/commit/050878307ff5f8a94385b7f41070dec19c7e84cc))
+
+
+### Bug Fixes
+
+* Bump all versions one final time I hope.... ([#297](https://github.com/edx/frontend-enterprise/issues/297)) ([3452d81](https://github.com/edx/frontend-enterprise/commit/3452d810bad4b7292ce342ac96bec500809b532d))
+* **deps:** update all non-major dependencies ([#419](https://github.com/edx/frontend-enterprise/issues/419)) ([2958977](https://github.com/edx/frontend-enterprise/commit/2958977042b774b3753034c2ade895c44514f99c))
+* manully bump versions after failed automation run ([#301](https://github.com/edx/frontend-enterprise/issues/301)) ([f1e8616](https://github.com/edx/frontend-enterprise/commit/f1e8616996c46ffda1c7596be6fc323136ac34c2))
+* publishing new npm packages ([39f18ed](https://github.com/edx/frontend-enterprise/commit/39f18ed01ecaf095230684f5a336afcb454339a4))
+
+
+### Miscellaneous Chores
+
+* move paragon to peer dependency using [@openedx](https://github.com/openedx) scope and upgrade frontend-platform ([#367](https://github.com/edx/frontend-enterprise/issues/367)) ([d121d67](https://github.com/edx/frontend-enterprise/commit/d121d67efa6e84de86a7f3eb84acb674f2d4a380))
+
+
+
 ## [7.2.0](https://github.com/openedx/frontend-enterprise/compare/@edx/frontend-enterprise-hotjar@7.1.0...@edx/frontend-enterprise-hotjar@7.2.0) (2025-02-24)
 
 
