@@ -6,6 +6,8 @@ export { default as FacetListRefinement } from './FacetListRefinement';
 export {
   SEARCH_FACET_FILTERS,
   SHOW_ALL_NAME,
+  NEW_CONTENT_REFINEMENT,
+  NEW_CONTENT_SELECTED_EVENT,
 } from './data/constants';
 
 export {

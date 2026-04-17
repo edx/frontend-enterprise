@@ -1,6 +1,8 @@
 import { features } from '../config';
 
 export const SHOW_ALL_NAME = 'showAll';
+export const NEW_CONTENT_REFINEMENT = 'new_content';
+export const NEW_CONTENT_SELECTED_EVENT = 'catalog_search.new_content_selected';
 
 export const SEARCH_FACET_FILTERS = [
   {
@@ -81,7 +83,7 @@ if (features.SUBTITLE_FACET) {
   });
 }
 
-export const BOOLEAN_FILTERS = [SHOW_ALL_NAME];
+export const BOOLEAN_FILTERS = [SHOW_ALL_NAME, NEW_CONTENT_REFINEMENT];
 export const QUERY_PARAM_FOR_SEARCH_QUERY = 'q';
 export const QUERY_PARAM_FOR_PAGE = 'page';
 export const QUERY_PARAM_FOR_FEATURE_FLAGS = 'features';

@@ -14,6 +14,7 @@ import { sortItemsByLabelAsc } from './data/utils';
 import { SearchContext } from './SearchContext';
 import { features } from './config';
 import LearningTypeRadioFacet from './LearningTypeRadioFacet';
+import NewContentRadioFacet from './NewContentRadioFacet';
 
 export const FREE_ALL_TITLE = 'Free / All';
 
@@ -49,6 +50,7 @@ const SearchFilters = ({ variant, enablePathways }) => {
         <>
           {filtersFromRefinements}
           {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
+          {features.NEW_CONTENT_FACET && (<NewContentRadioFacet />)}
         </>
       );
     },
