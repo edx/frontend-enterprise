@@ -22,7 +22,7 @@ const SearchFilters = ({ variant, enablePathways }) => {
 
   const searchFacets = useMemo(
     () => {
-      const filtersFromRefinements = searchFacetFilters.map(({
+      const toFacet = ({
         title, attribute, isSortedAlphabetical, typeaheadOptions, noDisplay,
       }) => (
         <FacetListRefinement
@@ -44,11 +44,16 @@ const SearchFilters = ({ variant, enablePathways }) => {
           variant={variant}
           noDisplay={noDisplay}
         />
-      ));
+      );
+      // Facets flagged with `isEndOfRow: true` render after LearningTypeRadioFacet,
+      // giving consumers a way to opt into the last slot in the filter row.
+      const mainFilters = searchFacetFilters.filter(f => !f.isEndOfRow).map(toFacet);
+      const endOfRowFilters = searchFacetFilters.filter(f => f.isEndOfRow).map(toFacet);
       return (
         <>
-          {filtersFromRefinements}
+          {mainFilters}
           {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
+          {endOfRowFilters}
         </>
       );
     },
