@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { IntlProvider } from '@edx/frontend-platform/i18n';
@@ -12,43 +13,55 @@ import '../../__mocks__/react-instantsearch-dom';
 import SearchFilters from '../SearchFilters';
 import SearchData from '../SearchContext';
 
-const SearchContextWrapper = () => {
+const SearchContextWrapper = ({ filterComponents }) => {
   const contextValue = useMemo(() => ({ width: breakpoints.large.maxWidth }), []);
   return (
     <ResponsiveContext.Provider value={contextValue}>
-      <SearchFilters />
+      <SearchFilters filterComponents={filterComponents} />
     </ResponsiveContext.Provider>
   );
 };
+SearchContextWrapper.propTypes = {
+  filterComponents: PropTypes.arrayOf(PropTypes.node),
+};
+SearchContextWrapper.defaultProps = {
+  filterComponents: null,
+};
 
 describe('<SearchFilters />', () => {
-  test('renders with a label', () => {
+  test('renders default facets when filterComponents is not provided', () => {
     renderWithSearchContext(<SearchContextWrapper />);
     SEARCH_FACET_FILTERS.forEach((filter) => {
       expect(screen.getByText(filter.title)).toBeInTheDocument();
     });
   });
 
-  test('renders facets flagged isEndOfRow after the main facets', () => {
-    const customFacets = [
-      { attribute: 'main_attr', title: 'MainFacet' },
-      { attribute: 'end_attr', title: 'EndFacet', isEndOfRow: true },
+  test('renders the provided filterComponents in place of the default facets', () => {
+    const customComponents = [
+      <div key="first">CustomFilterOne</div>,
+      <div key="second">CustomFilterTwo</div>,
     ];
     const contextValue = { width: breakpoints.large.maxWidth };
     renderWithRouter(
       <IntlProvider locale="en">
         <ResponsiveContext.Provider value={contextValue}>
-          <SearchData searchFacetFilters={customFacets}>
-            <SearchFilters />
+          <SearchData>
+            <SearchFilters filterComponents={customComponents} />
           </SearchData>
         </ResponsiveContext.Provider>
       </IntlProvider>,
     );
-    const mainFacet = screen.getByText('MainFacet');
-    const endFacet = screen.getByText('EndFacet');
-    expect(mainFacet).toBeInTheDocument();
-    expect(endFacet).toBeInTheDocument();
+    // Custom components render
+    const first = screen.getByText('CustomFilterOne');
+    const second = screen.getByText('CustomFilterTwo');
+    expect(first).toBeInTheDocument();
+    expect(second).toBeInTheDocument();
+    // And in the order the consumer provided them
     // eslint-disable-next-line no-bitwise
-    expect(mainFacet.compareDocumentPosition(endFacet) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    // Default facets are suppressed when the override is provided
+    SEARCH_FACET_FILTERS.forEach((filter) => {
+      expect(screen.queryByText(filter.title)).not.toBeInTheDocument();
+    });
   });
 });

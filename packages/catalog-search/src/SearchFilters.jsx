@@ -17,48 +17,42 @@ import LearningTypeRadioFacet from './LearningTypeRadioFacet';
 
 export const FREE_ALL_TITLE = 'Free / All';
 
-const SearchFilters = ({ variant, enablePathways }) => {
+const SearchFilters = ({ variant, enablePathways, filterComponents }) => {
   const { refinements, searchFacetFilters } = useContext(SearchContext);
 
-  const searchFacets = useMemo(
-    () => {
-      const toFacet = ({
-        title, attribute, isSortedAlphabetical, typeaheadOptions, noDisplay,
-      }) => (
-        <FacetListRefinement
-          key={attribute}
-          title={title}
-          attribute={attribute}
-          limit={300} // this is replicating the B2C search experience
-          transformItems={(items) => {
-            if (isSortedAlphabetical) {
-              return sortItemsByLabelAsc(items);
-            }
-            return items;
-          }}
-          refinements={refinements}
-          defaultRefinement={refinements[attribute]}
-          facetValueType="array"
-          typeaheadOptions={typeaheadOptions}
-          searchable={!!typeaheadOptions}
-          variant={variant}
-          noDisplay={noDisplay}
-        />
-      );
-      // Facets flagged with `isEndOfRow: true` render after LearningTypeRadioFacet,
-      // giving consumers a way to opt into the last slot in the filter row.
-      const mainFilters = searchFacetFilters.filter(f => !f.isEndOfRow).map(toFacet);
-      const endOfRowFilters = searchFacetFilters.filter(f => f.isEndOfRow).map(toFacet);
-      return (
-        <>
-          {mainFilters}
-          {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
-          {endOfRowFilters}
-        </>
-      );
-    },
+  const defaultSearchFacets = useMemo(
+    () => (
+      <>
+        {searchFacetFilters.map(({
+          title, attribute, isSortedAlphabetical, typeaheadOptions, noDisplay,
+        }) => (
+          <FacetListRefinement
+            key={attribute}
+            title={title}
+            attribute={attribute}
+            limit={300} // this is replicating the B2C search experience
+            transformItems={(items) => {
+              if (isSortedAlphabetical) {
+                return sortItemsByLabelAsc(items);
+              }
+              return items;
+            }}
+            refinements={refinements}
+            defaultRefinement={refinements[attribute]}
+            facetValueType="array"
+            typeaheadOptions={typeaheadOptions}
+            searchable={!!typeaheadOptions}
+            variant={variant}
+            noDisplay={noDisplay}
+          />
+        ))}
+        {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
+      </>
+    ),
     [JSON.stringify(refinements)],
   );
+
+  const searchFacets = filterComponents ?? defaultSearchFacets;
 
   return (
     <>
@@ -82,11 +76,15 @@ const SearchFilters = ({ variant, enablePathways }) => {
 SearchFilters.defaultProps = {
   variant: STYLE_VARIANTS.inverse,
   enablePathways: null,
+  filterComponents: null,
 };
 
 SearchFilters.propTypes = {
   variant: PropTypes.oneOf([STYLE_VARIANTS.default, STYLE_VARIANTS.inverse]),
   enablePathways: PropTypes.bool,
+  // Optional: array of filter components to render in place of the default facet list.
+  // When provided, the shared layout wrappers (mobile/desktop switch, CurrentRefinements) stay intact.
+  filterComponents: PropTypes.arrayOf(PropTypes.node),
 };
 
 export default SearchFilters;
