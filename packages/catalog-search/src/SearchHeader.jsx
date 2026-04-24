@@ -117,8 +117,8 @@ SearchHeader.propTypes = {
   suggestionSubmitOverride: PropTypes.func,
   disableSuggestionRedirect: PropTypes.bool,
   hideSearchBox: PropTypes.bool,
-  // Optional: array of filter components to render in place of the default SearchFilters facet list.
-  filterComponents: PropTypes.arrayOf(PropTypes.node),
+  // Optional: custom filter content to render in place of the default SearchFilters facet list.
+  filterComponents: PropTypes.node,
 };
 
 export default SearchHeader;

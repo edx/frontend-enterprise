@@ -82,9 +82,10 @@ SearchFilters.defaultProps = {
 SearchFilters.propTypes = {
   variant: PropTypes.oneOf([STYLE_VARIANTS.default, STYLE_VARIANTS.inverse]),
   enablePathways: PropTypes.bool,
-  // Optional: array of filter components to render in place of the default facet list.
+  // Optional: custom filter content to render in place of the default facet list.
+  // Accepts either an array of React elements (consumer-ordered list) or a single node.
   // When provided, the shared layout wrappers (mobile/desktop switch, CurrentRefinements) stay intact.
-  filterComponents: PropTypes.arrayOf(PropTypes.node),
+  filterComponents: PropTypes.node,
 };
 
 export default SearchFilters;

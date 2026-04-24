@@ -22,7 +22,7 @@ const SearchContextWrapper = ({ filterComponents }) => {
   );
 };
 SearchContextWrapper.propTypes = {
-  filterComponents: PropTypes.arrayOf(PropTypes.node),
+  filterComponents: PropTypes.node,
 };
 SearchContextWrapper.defaultProps = {
   filterComponents: null,
