@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRouter } from '@edx/frontend-enterprise-utils';
+import { renderWithRouter } from '@2uinc/frontend-enterprise-utils';
 import { IntlProvider } from '@edx/frontend-platform/i18n';
 
 import SearchData from '../SearchContext';

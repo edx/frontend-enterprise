@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { IntlProvider } from '@edx/frontend-platform/i18n';
-import { renderWithRouter } from '@edx/frontend-enterprise-utils';
+import { renderWithRouter } from '@2uinc/frontend-enterprise-utils';
 import { breakpoints, ResponsiveContext } from '@openedx/paragon';
 import { SEARCH_FACET_FILTERS } from '../data/constants';
 

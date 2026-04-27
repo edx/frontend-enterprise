@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { renderWithRouter } from '@edx/frontend-enterprise-utils';
+import { renderWithRouter } from '@2uinc/frontend-enterprise-utils';
 import '@testing-library/jest-dom/extend-expect';
 
 import LoginRedirect from './LoginRedirect';

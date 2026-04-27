@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo, useState, useEffect } from 'react';
-import { isNull } from '@edx/frontend-enterprise-utils';
+import { isNull } from '@2uinc/frontend-enterprise-utils';
 
 /**
    * Transforms items into an object with a key for each facet attribute
