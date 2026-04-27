@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useIsFirstRender } from '@edx/frontend-enterprise-utils';
+import { useIsFirstRender } from '@2uinc/frontend-enterprise-utils';
 import { useIntl } from '@edx/frontend-platform/i18n';
 
 import {

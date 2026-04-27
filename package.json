@@ -1,11 +1,11 @@
 {
-  "name": "@edx/frontend-enterprise",
+  "name": "@2uinc/frontend-enterprise",
   "author": "edX",
   "license": "AGPL-3.0",
   "description": "Frontend libraries and UI components for Enterprise in a monorepo managed by Lerna",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-enterprise.git"
+    "url": "git+https://github.com/edx/frontend-enterprise.git"
   },
   "workspaces": [
     "./packages/*"

@@ -5,10 +5,10 @@ frontend-enterprise
 
 ``frontend-enterprise`` is a monorepo powered by Lerna containing several JavaScript packages that are independently published to NPM. These packages, listed below, contain shared enterprise-related UI components and utility functions.
 
-- `@edx/frontend-enterprise-catalog-search </packages/catalog-search>`_
-- `@edx/frontend-enterprise-logistration </packages/logistration>`_
-- `@edx/frontend-enterprise-utils </packages/utils>`_
-- `@edx/frontend-enterprise-hotjar </packages/hotjar>`_
+- `@2uinc/frontend-enterprise-catalog-search </packages/catalog-search>`_
+- `@2uinc/frontend-enterprise-logistration </packages/logistration>`_
+- `@2uinc/frontend-enterprise-utils </packages/utils>`_
+- `@2uinc/frontend-enterprise-hotjar </packages/hotjar>`_
 
 Each of these packages is published to NPM and have their own README files. The packages can be found in the ``packages/*`` folder.
 
@@ -21,7 +21,7 @@ To get started with ``frontend-enterprise`` local development, clone the repo an
 
   npm run setup
 
-The above command will install package dependencies using NPM workspaces, hoisting all packages to `node_modules` at the root of the repository for performance reasons (e.g., there will only be one copy of React). By using NPM workspaces, `npm install` knows that when importing a package that is part of this monorepo (e.g., `@edx/frontend-enterprise-utils`), it should look at the local package folder and creates symlinks accordingly.
+The above command will install package dependencies using NPM workspaces, hoisting all packages to `node_modules` at the root of the repository for performance reasons (e.g., there will only be one copy of React). By using NPM workspaces, `npm install` knows that when importing a package that is part of this monorepo (e.g., `@2uinc/frontend-enterprise-utils`), it should look at the local package folder and creates symlinks accordingly.
 
 Other useful commands for linting and testing may include:
 
@@ -34,7 +34,7 @@ The above NPM scripts are run via NPM workspaces behind-the-scenes. By default, 
 
 ::
 
-  npm run test -w @edx/frontend-enterprise-catalog-search
+  npm run test -w @2uinc/frontend-enterprise-catalog-search
 
 To clean your local monorepo of any installed ``node_modules`` and symlinked packages to start fresh, you may run:
 
@@ -55,7 +55,7 @@ To install a new NPM module in one or more specific workspace package(s), use th
 
 ::
 
-  npm install -D @openedx/paragon@latest --workspace=@edx/frontend-enterprise-catalog-search
+  npm install -D @openedx/paragon@latest --workspace=@2uinc/frontend-enterprise-catalog-search
 
 
 Installing local monorepo package(s) into an Open edX micro-frontend
@@ -68,14 +68,14 @@ For any micro-frontend using `@openedx/frontend-build <https://github.com/opened
   module.exports = {
     localModules: [
       {
-        moduleName: '@edx/frontend-enterprise-catalog-search',
+        moduleName: '@2uinc/frontend-enterprise-catalog-search',
         dir: '../frontend-enterprise/packages/catalog-search',
         dist: 'src',
       },
     ],
   };
 
-By configuring the module.config.js as such, when running ``npm start``, the consuming micro-frontend will instead import from the ``../frontend-enterprise/packages/catalog-search/src`` rather than the published ``@edx/frontend-enterprise-catalog-search`` NPM package. This allows contributors to test any local changes to packages in this monorepo inside of consuming applications.
+By configuring the module.config.js as such, when running ``npm start``, the consuming micro-frontend will instead import from the ``../frontend-enterprise/packages/catalog-search/src`` rather than the published ``@2uinc/frontend-enterprise-catalog-search`` NPM package. This allows contributors to test any local changes to packages in this monorepo inside of consuming applications.
 
 Note that the ``dist`` configuration option in the above example is set to ``src`` vs. ``dist``. By using ``src`` here, any changes made to package source files will be picked up and hot reloaded by the consuming micro-frontend.
 
@@ -86,7 +86,7 @@ Considerations for updating existing packages or adding a new package
 
 When making updates in this monorepo, be sure to consider whether your changes should belong in an existing NPM package or a brand new NPM package. The purpose of the monorepo is to keep clear separation of concerns between packages so that each package owns a smaller domain of functionality or components to avoid package bloat.
 
-However, we do run the risk of packages becoming a "catch-all" package (e.g., ``@edx/frontend-enterprise-utils``) for anything that doesn't fit in existing packages. Contributors to the monorepo should consider whether any new functionality is related to the domains established in existing packages.
+However, we do run the risk of packages becoming a "catch-all" package (e.g., ``@2uinc/frontend-enterprise-utils``) for anything that doesn't fit in existing packages. Contributors to the monorepo should consider whether any new functionality is related to the domains established in existing packages.
 
 Managing package dependencies
 *****************************
