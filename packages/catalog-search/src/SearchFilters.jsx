@@ -17,43 +17,42 @@ import LearningTypeRadioFacet from './LearningTypeRadioFacet';
 
 export const FREE_ALL_TITLE = 'Free / All';
 
-const SearchFilters = ({ variant, enablePathways }) => {
+const SearchFilters = ({ variant, enablePathways, filterComponents }) => {
   const { refinements, searchFacetFilters } = useContext(SearchContext);
 
-  const searchFacets = useMemo(
-    () => {
-      const filtersFromRefinements = searchFacetFilters.map(({
-        title, attribute, isSortedAlphabetical, typeaheadOptions, noDisplay,
-      }) => (
-        <FacetListRefinement
-          key={attribute}
-          title={title}
-          attribute={attribute}
-          limit={300} // this is replicating the B2C search experience
-          transformItems={(items) => {
-            if (isSortedAlphabetical) {
-              return sortItemsByLabelAsc(items);
-            }
-            return items;
-          }}
-          refinements={refinements}
-          defaultRefinement={refinements[attribute]}
-          facetValueType="array"
-          typeaheadOptions={typeaheadOptions}
-          searchable={!!typeaheadOptions}
-          variant={variant}
-          noDisplay={noDisplay}
-        />
-      ));
-      return (
-        <>
-          {filtersFromRefinements}
-          {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
-        </>
-      );
-    },
+  const defaultSearchFacets = useMemo(
+    () => (
+      <>
+        {searchFacetFilters.map(({
+          title, attribute, isSortedAlphabetical, typeaheadOptions, noDisplay,
+        }) => (
+          <FacetListRefinement
+            key={attribute}
+            title={title}
+            attribute={attribute}
+            limit={300} // this is replicating the B2C search experience
+            transformItems={(items) => {
+              if (isSortedAlphabetical) {
+                return sortItemsByLabelAsc(items);
+              }
+              return items;
+            }}
+            refinements={refinements}
+            defaultRefinement={refinements[attribute]}
+            facetValueType="array"
+            typeaheadOptions={typeaheadOptions}
+            searchable={!!typeaheadOptions}
+            variant={variant}
+            noDisplay={noDisplay}
+          />
+        ))}
+        {features.LEARNING_TYPE_FACET && (<LearningTypeRadioFacet enablePathways={enablePathways} />)}
+      </>
+    ),
     [JSON.stringify(refinements)],
   );
+
+  const searchFacets = filterComponents ?? defaultSearchFacets;
 
   return (
     <>
@@ -77,11 +76,16 @@ const SearchFilters = ({ variant, enablePathways }) => {
 SearchFilters.defaultProps = {
   variant: STYLE_VARIANTS.inverse,
   enablePathways: null,
+  filterComponents: null,
 };
 
 SearchFilters.propTypes = {
   variant: PropTypes.oneOf([STYLE_VARIANTS.default, STYLE_VARIANTS.inverse]),
   enablePathways: PropTypes.bool,
+  // Optional: custom filter content to render in place of the default facet list.
+  // Accepts either an array of React elements (consumer-ordered list) or a single node.
+  // When provided, the shared layout wrappers (mobile/desktop switch, CurrentRefinements) stay intact.
+  filterComponents: PropTypes.node,
 };
 
 export default SearchFilters;

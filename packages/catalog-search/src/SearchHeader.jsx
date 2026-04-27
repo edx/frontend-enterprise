@@ -24,6 +24,7 @@ const SearchHeader = ({
   enterpriseConfig: { slug, enablePathways },
   disableSuggestionRedirect,
   hideSearchBox,
+  filterComponents,
 }) => {
   const { refinements } = useContext(SearchContext);
   let searchQueryFromRefinements;
@@ -73,7 +74,12 @@ const SearchHeader = ({
             className={classNames('fe__searchbox-col', { 'fe__searchbox-col--default': variant === STYLE_VARIANTS.default })}
             xs={12}
           >
-            <SearchFilters className="mb-3" variant={variant} enablePathways={enablePathways} />
+            <SearchFilters
+              className="mb-3"
+              variant={variant}
+              enablePathways={enablePathways}
+              filterComponents={filterComponents}
+            />
           </Col>
         </Row>
       </Container>
@@ -92,6 +98,7 @@ SearchHeader.defaultProps = {
   disableSuggestionRedirect: false,
   index: undefined,
   hideSearchBox: false,
+  filterComponents: null,
 };
 
 SearchHeader.propTypes = {
@@ -110,6 +117,8 @@ SearchHeader.propTypes = {
   suggestionSubmitOverride: PropTypes.func,
   disableSuggestionRedirect: PropTypes.bool,
   hideSearchBox: PropTypes.bool,
+  // Optional: custom filter content to render in place of the default SearchFilters facet list.
+  filterComponents: PropTypes.node,
 };
 
 export default SearchHeader;

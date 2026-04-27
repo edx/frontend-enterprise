@@ -2,6 +2,7 @@ export { default as SearchData, SearchContext } from './SearchContext';
 export { default as SearchHeader } from './SearchHeader';
 export { default as SearchPagination } from './SearchPagination';
 export { default as FacetListRefinement } from './FacetListRefinement';
+export { default as LearningTypeRadioFacet } from './LearningTypeRadioFacet';
 
 export {
   SEARCH_FACET_FILTERS,
