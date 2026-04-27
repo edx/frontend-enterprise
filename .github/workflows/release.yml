@@ -67,4 +67,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pull-request-number: ${{ steps.vpr.outputs.pull-request-number }}
-          merge-method: squash
+          # Must be "merge" (not "squash" or "rebase") so that lerna's
+          # version-bump commit is preserved on master with its original SHA.
+          # The git tags and GitHub Releases created by lerna point to that
+          # commit; squash or rebase would orphan it.
+          merge-method: merge
