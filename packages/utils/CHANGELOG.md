@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.1 (2026-04-27)
+
+
+### Bug Fixes
+
+* publishing new npm packages ([39f18ed](https://github.com/edx/frontend-enterprise/commit/39f18ed01ecaf095230684f5a336afcb454339a4))
+
+
+
 ## [10.0.0](https://github.com/openedx/frontend-enterprise/compare/@edx/frontend-enterprise-utils@9.1.1...@edx/frontend-enterprise-utils@10.0.0) (2025-02-26)
 
 

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.1.0](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.0.2...@2uinc/frontend-enterprise-catalog-search@11.1.0) (2026-04-27)
+
+
+### Features
+
+* support isEndOfRow facets in SearchFilters ([e2acc1e](https://github.com/edx/frontend-enterprise/commit/e2acc1edf44ae96ccf8b809a94d97607e50133c7))
+
+
+### Bug Fixes
+
+* publishing new npm packages ([39f18ed](https://github.com/edx/frontend-enterprise/commit/39f18ed01ecaf095230684f5a336afcb454339a4))
+
+
+
 ## [11.0.2](https://github.com/openedx/frontend-enterprise/compare/@edx/frontend-enterprise-catalog-search@11.0.1...@edx/frontend-enterprise-catalog-search@11.0.2) (2025-04-25)
 
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.2.2 (2026-04-27)
+
+
+### Bug Fixes
+
+* publishing new npm packages ([39f18ed](https://github.com/edx/frontend-enterprise/commit/39f18ed01ecaf095230684f5a336afcb454339a4))
+
+
+
 ## [9.2.1](https://github.com/openedx/frontend-enterprise/compare/@edx/frontend-enterprise-logistration@9.2.0...@edx/frontend-enterprise-logistration@9.2.1) (2025-02-26)
 
 **Note:** Version bump only for package @edx/frontend-enterprise-logistration
