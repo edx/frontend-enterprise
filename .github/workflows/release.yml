@@ -36,6 +36,8 @@ jobs:
         run: npm run build
       - name: Coverage Report
         uses: codecov/codecov-action@v5
+      - name: Clean up untracked files
+        run: git clean -fd
       - name: Update automation/lerna/version branch
         run: |
           git switch -C automation/lerna/version
@@ -52,23 +54,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate Lerna Versions PR
-        id: vpr
-        uses: peter-evans/create-pull-request@v4
-        with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            title: "chore(release): publish :tada:"
-            body: |
-              chore(release): publish :tada:
-            branch: automation/lerna/version
-            base: master
+        run: |
+          gh pr create \
+            --title "chore(release): publish :tada:" \
+            --body "chore(release): publish :tada:" \
+            --head automation/lerna/version \
+            --base master
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable Lerna Versions PR Pull Request Automerge
-        if: steps.vpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ steps.vpr.outputs.pull-request-number }}
+        run: |
           # Must be "merge" (not "squash" or "rebase") so that lerna's
           # version-bump commit is preserved on master with its original SHA.
           # The git tags and GitHub Releases created by lerna point to that
           # commit; squash or rebase would orphan it.
-          merge-method: merge
+          gh pr merge automation/lerna/version --auto --merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
