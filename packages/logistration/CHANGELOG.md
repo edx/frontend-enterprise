@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.3](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-logistration@9.2.2...@2uinc/frontend-enterprise-logistration@9.2.3) (2026-04-27)
+
+**Note:** Version bump only for package @2uinc/frontend-enterprise-logistration
+
+
+
+
+
 ## 9.2.2 (2026-04-27)
 
 
