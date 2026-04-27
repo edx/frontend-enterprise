@@ -19,7 +19,7 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version-file: '.nvmrc'
       # lerna expects to be authenticated for publishing to NPM. This step will fail CI if NPM is not authenticated
       - name: Check NPM authentication
         run: |
@@ -37,6 +37,6 @@ jobs:
       - name: Coverage Report
         uses: codecov/codecov-action@v5
       - name: Publish to NPM from package.json versions
-        run: npx lerna@6 publish from-package --yes
+        run: npx lerna publish from-package --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

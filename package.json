@@ -21,13 +21,12 @@
     "lint:fix": "npm run lint:fix --workspaces",
     "bootstrap": "npm install conventional-changelog-conventionalcommits",
     "changed": "lerna changed",
-    "lerna:version": "npx lerna@6 version --conventional-commits --create-release github --no-push",
+    "lerna:version": "npx lerna version --conventional-commits --create-release github --no-push",
     "i18n_extract": "fedx-scripts formatjs extract packages/**/**/*.{js,jsx,ts,tsx}"
   },
   "devDependencies": {
-      "@commitlint/config-conventional": "17.8.1",
-      "conventional-changelog-conventionalcommits": "^5.0.0",
-      "husky": "6.0.0",
-      "lerna": "6.6.2"
+    "@commitlint/config-conventional": "20.5.0",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "lerna": "9.0.7"
   }
 }
