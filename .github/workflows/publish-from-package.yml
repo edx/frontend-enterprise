@@ -3,8 +3,8 @@ name: Publish from package.json
 on: [workflow_dispatch]
 
 jobs:
-  release:
-    name: Release
+  publish:
+    name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
