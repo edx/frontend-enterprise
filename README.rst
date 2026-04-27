@@ -124,7 +124,7 @@ Preview changed packages in CI with Github Actions
 
 As a convenience, a dry run of the ``lerna version`` command is run for each push to determine which packages in the monorepo will be published should a PR get merged.
 
-.. |Build Status| image:: https://github.com/openedx/frontend-enterprise/actions/workflows/release.yml/badge.svg
-   :target: https://github.com/openedx/frontend-enterprise/actions
+.. |Build Status| image:: https://github.com/edx/frontend-enterprise/actions/workflows/release.yml/badge.svg
+   :target: https://github.com/edx/frontend-enterprise/actions
 .. |Codecov| image:: https://codecov.io/gh/edx/frontend-enterprise/branch/master/graph/badge.svg?token=lBHoe5P4Q3
    :target: https://codecov.io/gh/edx/frontend-enterprise
