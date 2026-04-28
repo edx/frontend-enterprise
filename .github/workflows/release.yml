@@ -47,7 +47,7 @@ jobs:
           git push -f origin automation/lerna/version
       - name: Increment Versions of Changed Packages
         run: | 
-          npx lerna@6 version --yes --allow-branch automation/lerna/version --git-remote origin --conventional-commits --create-release github
+          npx lerna version --yes --allow-branch automation/lerna/version --git-remote origin --conventional-commits --create-release github
           git status
           git push --set-upstream origin automation/lerna/version
           git push origin --tags
