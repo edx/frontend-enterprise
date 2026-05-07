@@ -198,6 +198,11 @@ const messages = defineMessages({
     defaultMessage: 'Tibetan',
     description: 'Option label for the tibetan language filter.',
   },
+  true: {
+    id: 'search.facetFilters.newContent.yes',
+    defaultMessage: 'Yes',
+    description: 'Option label for the new content boolean filter.',
+  },
 });
 
 export default messages;
