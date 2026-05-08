@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.0](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.1.1...@2uinc/frontend-enterprise-catalog-search@11.2.0) (2026-05-08)
+
+### Features
+
+* **ENT-11384:** add 'Yes' label for is_new_content boolean facet
+
+
 ## [11.1.1](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.1.0...@2uinc/frontend-enterprise-catalog-search@11.1.1) (2026-04-27)
 
 **Note:** Version bump only for package @2uinc/frontend-enterprise-catalog-search
