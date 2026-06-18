@@ -200,7 +200,7 @@ const messages = defineMessages({
   },
   true: {
     id: 'search.facetFilters.newContent.yes',
-    defaultMessage: 'Yes',
+    defaultMessage: 'Recently added',
     description: 'Option label for the new content boolean filter.',
   },
 });
