@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.4](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-utils@10.0.3...@2uinc/frontend-enterprise-utils@10.0.4) (2026-06-18)
+
+**Note:** Version bump only for package @2uinc/frontend-enterprise-utils
+
+
+
+
+
 ## [10.0.3](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-utils@10.0.2...@2uinc/frontend-enterprise-utils@10.0.3) (2026-05-08)
 
 **Note:** Version bump only for package @2uinc/frontend-enterprise-utils
