@@ -74,7 +74,7 @@ const messages = defineMessages({
   },
   languageTitle: {
     id: 'search.facetFilters.language.title',
-    defaultMessage: 'Language',
+    defaultMessage: 'Course Language',
     description: 'Title for the language facet filter',
   },
   learningTypeTitle: {
