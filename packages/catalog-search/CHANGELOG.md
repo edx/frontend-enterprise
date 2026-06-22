@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.3.0](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.2.1...@2uinc/frontend-enterprise-catalog-search@11.3.0) (2026-06-22)
+
+### Features
+
+* updated language facet name to course language
+
+
 ## [11.2.1](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.2.0...@2uinc/frontend-enterprise-catalog-search@11.2.1) (2026-06-18)
 
 ### Bug Fixes
