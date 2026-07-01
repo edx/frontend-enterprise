@@ -12,6 +12,7 @@ import {
 import { features } from './config';
 import {
   LEARNING_TYPE_COURSE,
+  LEARNING_TYPE_EXECUTIVE_EDUCATION,
   LEARNING_TYPE_PROGRAM,
   LEARNING_TYPE_PATHWAY,
   LEARNING_TYPE_VIDEO,
@@ -23,12 +24,15 @@ const LearningTypeRadioFacet = ({ enablePathways }) => {
     refinements, dispatch, enableVideos, trackingName,
   } = useContext(SearchContext);
 
-  // only bold the dropdown title if the learning type is Course or Program
+  // Bold the dropdown title if any explicit learning type is selected.
   const typeCourseSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_COURSE);
   const typeProgramSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_PROGRAM);
   const typePathwaySelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_PATHWAY);
   const typeVideoSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_VIDEO);
-  const boldTitle = typeCourseSelected || typeProgramSelected || typePathwaySelected || typeVideoSelected;
+  const typeExecutiveEducationSelected = refinements.learning_type
+    && refinements.learning_type.includes(LEARNING_TYPE_EXECUTIVE_EDUCATION);
+  const boldTitle = typeCourseSelected || typeProgramSelected
+    || typePathwaySelected || typeVideoSelected || typeExecutiveEducationSelected;
 
   const handleInputOnChange = (type) => {
     if (type === '') {
@@ -36,10 +40,24 @@ const LearningTypeRadioFacet = ({ enablePathways }) => {
     } else {
       dispatch(setRefinementAction('content_type', [type]));
     }
+    // Clear Executive Education refinement when selecting any content_type option.
+    dispatch(setRefinementAction('learning_type', []));
+
     if (trackingName) {
       const learningType = type || 'any';
       sendTrackEvent(`${SEARCH_EVENT_NAME_PREFIX}.${trackingName}.${LEARNING_TYPE_SELECTED_EVENT}`, {
         learningType,
+      });
+    }
+  };
+
+  const handleExecutiveEducationOnChange = () => {
+    dispatch(setRefinementAction('content_type', []));
+    dispatch(setRefinementAction('learning_type', [LEARNING_TYPE_EXECUTIVE_EDUCATION]));
+
+    if (trackingName) {
+      sendTrackEvent(`${SEARCH_EVENT_NAME_PREFIX}.${trackingName}.${LEARNING_TYPE_SELECTED_EVENT}`, {
+        learningType: LEARNING_TYPE_EXECUTIVE_EDUCATION,
       });
     }
   };
@@ -104,6 +122,22 @@ const LearningTypeRadioFacet = ({ enablePathways }) => {
                 id="search.facetFilters.learningType.programs"
                 defaultMessage="Programs"
                 description="Title for the learning type facet filter to return programs only"
+              />
+            </span>
+          </Dropdown.Item>
+          <Dropdown.Item as="label" className="mb-0 py-3 d-flex align-items-center">
+            <Input
+              type="radio"
+              checked={typeExecutiveEducationSelected}
+              className="facet-item position-relative mr-2 mb-2"
+              onChange={handleExecutiveEducationOnChange}
+              data-testid="learning-type-executive-education"
+            />
+            <span className={classNames('facet-item-label', { 'is-refined': typeExecutiveEducationSelected })}>
+              <FormattedMessage
+                id="search.facetFilters.learningType.executiveEducation"
+                defaultMessage="Executive Education"
+                description="Title for the learning type facet filter to return executive education courses only"
               />
             </span>
           </Dropdown.Item>
