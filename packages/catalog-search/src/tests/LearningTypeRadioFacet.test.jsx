@@ -101,7 +101,7 @@ describe('<LearningTypeRadioFacet />', () => {
     });
   });
 
-  test('LearningTypeRadioFacet is bold content type Executive Education is selected', async () => {
+  test('LearningTypeRadioFacet title is bold when Executive Education is selected', async () => {
     const user = userEvent.setup();
     renderWithSearchContext(<LearningTypeRadioFacet enablePathways />);
     expect(screen.getByText('Learning Type')).toBeInTheDocument();

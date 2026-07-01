@@ -71,6 +71,13 @@ if (features.LEARNING_TYPE_FACET) {
     // facet created with courses and programs dropdown items only.
     noDisplay: true,
   });
+
+  SEARCH_FACET_FILTERS.push({
+    attribute: 'learning_type',
+    title: 'Learning type',
+    // Keep this connected but hidden so custom UI controls can apply learning_type refinements.
+    noDisplay: true,
+  });
 }
 
 if (features.SUBTITLE_FACET) {
