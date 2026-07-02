@@ -1,6 +1,6 @@
 {
   "name": "@2uinc/frontend-enterprise-logistration",
-  "version": "9.2.6",
+  "version": "9.2.7",
   "description": "Enterprise-specific component(s) to ensure enterprise users are redirected to branded enterprise logistration flow.",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@2uinc/frontend-enterprise-utils": "^10.0.5",
+    "@2uinc/frontend-enterprise-utils": "^10.0.6",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
