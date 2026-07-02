@@ -35,6 +35,7 @@ describe('<LearningTypeRadioFacet />', () => {
       expect(screen.getByText('Any')).toBeInTheDocument();
       expect(screen.getByText('Courses')).toBeInTheDocument();
       expect(screen.getByText('Programs')).toBeInTheDocument();
+      expect(screen.getByText('Executive Education')).toBeInTheDocument();
       expect(screen.getByText('Pathways')).toBeInTheDocument();
     });
   });
@@ -48,6 +49,7 @@ describe('<LearningTypeRadioFacet />', () => {
       expect(screen.getByText('Any')).toBeInTheDocument();
       expect(screen.getByText('Courses')).toBeInTheDocument();
       expect(screen.getByText('Programs')).toBeInTheDocument();
+      expect(screen.getByText('Executive Education')).toBeInTheDocument();
       expect(screen.queryByText('Pathways')).not.toBeInTheDocument();
     });
   });
@@ -96,6 +98,18 @@ describe('<LearningTypeRadioFacet />', () => {
     await waitFor(() => {
       expect(screen.getByText('Learning Type').classList.contains('font-weight-bold')).toBeTruthy();
       expect(screen.getByText('Pathways').classList.contains('is-refined')).toBeTruthy();
+    });
+  });
+
+  test('LearningTypeRadioFacet title is bold when Executive Education is selected', async () => {
+    const user = userEvent.setup();
+    renderWithSearchContext(<LearningTypeRadioFacet enablePathways />);
+    expect(screen.getByText('Learning Type')).toBeInTheDocument();
+    await user.click(screen.getByText('Learning Type'));
+    await user.click(screen.getByTestId('learning-type-executive-education'));
+    await waitFor(() => {
+      expect(screen.getByText('Learning Type').classList.contains('font-weight-bold')).toBeTruthy();
+      expect(screen.getByText('Executive Education').classList.contains('is-refined')).toBeTruthy();
     });
   });
 });

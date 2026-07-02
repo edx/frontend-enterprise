@@ -17,7 +17,7 @@ jest.mock('../../config', () => ({
 
 describe('Constants', () => {
   test('Search facet filters are defined correctly', () => {
-    expect(SEARCH_FACET_FILTERS).toHaveLength(9);
+    expect(SEARCH_FACET_FILTERS).toHaveLength(10);
   });
 
   test('Additional facet filters are defined correctly', () => {

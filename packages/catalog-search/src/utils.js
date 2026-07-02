@@ -156,6 +156,13 @@ export function getSearchFacetFilters(intl) {
       // if we add without hiding, there will be a new facet created with courses and programs dropdown items only.
       noDisplay: true,
     });
+
+    searchFacetFilters.push({
+      attribute: 'learning_type',
+      title: intl.formatMessage(messages.learningTypeTitle),
+      // Keep this connected but hidden so custom UI controls can apply learning_type refinements.
+      noDisplay: true,
+    });
   }
 
   if (features.SUBTITLE_FACET) {

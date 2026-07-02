@@ -2,6 +2,7 @@ import { defineMessages } from '@edx/frontend-platform/i18n';
 import {
   LEARNING_TYPE_PATHWAY,
   LEARNING_TYPE_COURSE,
+  LEARNING_TYPE_EXECUTIVE_EDUCATION,
   LEARNING_TYPE_PROGRAM,
   LEARNING_TYPE_VIDEO,
 } from './data/constants';
@@ -57,6 +58,11 @@ const messages = defineMessages({
     id: 'search.facetFilters.filterTitle.video',
     defaultMessage: 'Video',
     description: 'Title for the video filter.',
+  },
+  [LEARNING_TYPE_EXECUTIVE_EDUCATION]: {
+    id: 'search.facetFilters.filterTitle.executiveEducation',
+    defaultMessage: 'Executive Education',
+    description: 'Title for the executive education filter.',
   },
   [AVAILABILITY_AVAILABLE_NOW]: {
     id: 'search.facetFilters.availability.availableNow',
