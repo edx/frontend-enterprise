@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.4.0](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.3.0...@2uinc/frontend-enterprise-catalog-search@11.4.0) (2026-07-02)
+
+### Features
+
+* add Executive Education filter to learning type ([#22](https://github.com/edx/frontend-enterprise/issues/22))
+
+
 ## [11.3.0](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-catalog-search@11.2.1...@2uinc/frontend-enterprise-catalog-search@11.3.0) (2026-06-22)
 
 ### Features
