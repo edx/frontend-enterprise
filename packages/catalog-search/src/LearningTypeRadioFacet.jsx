@@ -24,13 +24,15 @@ const LearningTypeRadioFacet = ({ enablePathways }) => {
     refinements, dispatch, enableVideos, trackingName,
   } = useContext(SearchContext);
 
+  const contentTypes = refinements.content_type ?? [];
+  const learningTypes = refinements.learning_type ?? [];
+
   // Bold the dropdown title if any explicit learning type is selected.
-  const typeCourseSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_COURSE);
-  const typeProgramSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_PROGRAM);
-  const typePathwaySelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_PATHWAY);
-  const typeVideoSelected = refinements.content_type && refinements.content_type.includes(LEARNING_TYPE_VIDEO);
-  const typeExecutiveEducationSelected = refinements.learning_type
-    && refinements.learning_type.includes(LEARNING_TYPE_EXECUTIVE_EDUCATION);
+  const typeCourseSelected = contentTypes.includes(LEARNING_TYPE_COURSE);
+  const typeProgramSelected = contentTypes.includes(LEARNING_TYPE_PROGRAM);
+  const typePathwaySelected = contentTypes.includes(LEARNING_TYPE_PATHWAY);
+  const typeVideoSelected = contentTypes.includes(LEARNING_TYPE_VIDEO);
+  const typeExecutiveEducationSelected = learningTypes.includes(LEARNING_TYPE_EXECUTIVE_EDUCATION);
   const boldTitle = typeCourseSelected || typeProgramSelected
     || typePathwaySelected || typeVideoSelected || typeExecutiveEducationSelected;
 
