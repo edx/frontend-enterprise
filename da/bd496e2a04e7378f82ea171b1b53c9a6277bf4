@@ -1,0 +1,19 @@
+packages/catalog-search/src/SearchBox.jsx
+  s_803c4d3f31485a::t_bd9bd80c103d19 122
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "dabd496e2a04e7378f82ea171b1b53c9a6277bf4",
+  "prompts": {},
+  "sessions": {
+    "s_803c4d3f31485a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f50d31d0-b3ea-4851-9475-53e79fe28181",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Srija Indukuri <ssrijaindukuri-sonata@2u.com>"
+    }
+  }
+}
