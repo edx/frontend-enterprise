@@ -119,6 +119,7 @@ export const SearchBoxBase = ({
         setShowSuggestions(false);
       }
     } else {
+      setAutocompleteHits([]);
       setShowSuggestions(false);
     }
   };
