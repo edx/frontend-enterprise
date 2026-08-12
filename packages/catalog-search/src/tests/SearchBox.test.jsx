@@ -75,6 +75,17 @@ describe('<SearchBox />', () => {
     expect(screen.queryByTestId('suggestions')).toBeNull();
   });
 
+  test('does not show suggestions or query algolia when search box is focused with an empty query', async () => {
+    const user = userEvent.setup();
+    index.search.mockClear();
+
+    renderWithSearchContext(<SearchBoxBase enterpriseSlug="test-enterprise" index={index} />);
+    await user.click(screen.getByRole('searchbox'));
+
+    expect(index.search).not.toHaveBeenCalled();
+    expect(screen.queryByTestId('suggestions')).toBeNull();
+  });
+
   test('makes algolia call with correct parameters on typing in searchbox', async () => {
     const user = userEvent.setup();
     const hits = [

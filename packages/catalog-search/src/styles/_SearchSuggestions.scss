@@ -54,30 +54,6 @@
 
 }
 
-.prequery-item {
-  margin: 5px 0px;
-  color: #000;
-  white-space: pre-wrap;
-
-  &:hover {
-    color: white;
-    background-color: #000000;
-    text-decoration: none;
-  }
-
-  &:hover span {
-    color: white;
-  }
-}
-
-.prequery-image {
-  width: 40px;
-  height: 40px;
-  margin: 10px 10px;
-  object-fit: cover;
-  border-radius: 0 !important;
-}
-
 .suggestion-heading {
   color: #707070 !important
 }
