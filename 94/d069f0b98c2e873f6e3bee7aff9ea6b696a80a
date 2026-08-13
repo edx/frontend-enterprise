@@ -1,0 +1,23 @@
+packages/catalog-search/src/SearchBox.jsx
+  s_803c4d3f31485a::t_e345a934ae6eb4 121-122
+packages/catalog-search/src/SearchSuggestions.jsx
+  s_803c4d3f31485a::t_628e9fba9bfe44 109-115
+packages/catalog-search/src/tests/SearchBox.test.jsx
+  s_803c4d3f31485a::t_f29d9b482ecc68 78-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "94d069f0b98c2e873f6e3bee7aff9ea6b696a80a",
+  "prompts": {},
+  "sessions": {
+    "s_803c4d3f31485a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f50d31d0-b3ea-4851-9475-53e79fe28181",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": null
+    }
+  }
+}
