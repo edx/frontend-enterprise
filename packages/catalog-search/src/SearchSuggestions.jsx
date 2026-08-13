@@ -5,13 +5,10 @@ import { FormattedMessage } from '@edx/frontend-platform/i18n';
 import {
   MAX_NUM_SUGGESTIONS, LEARNING_TYPE_COURSE, LEARNING_TYPE_PROGRAM,
   LEARNING_TYPE_EXECUTIVE_EDUCATION, COURSE_TYPE_EXECUTIVE_EDUCATION,
-  MAX_NUM_PRE_QUERY_SUGGESTIONS,
 } from './data/constants';
-import PrequerySearchSuggestionItem from './PrequerySearchSuggestionItem';
 import SearchSuggestionItem from './SearchSuggestionItem';
 
 const SearchSuggestions = ({
-  preQueryHits,
   autoCompleteHits,
   enterpriseSlug,
   handleSubmit,
@@ -28,16 +25,10 @@ const SearchSuggestions = ({
   };
   const getLinkToProgram = (program) => `/${enterpriseSlug}/program/${program.aggregation_key.split(':').pop()}`;
 
-  const preQuerySuggestions = [];
   const courses = [];
   const programs = [];
   const execEdCourses = [];
 
-  if (preQueryHits) {
-    preQueryHits.forEach((hit) => {
-      preQuerySuggestions.push(hit);
-    });
-  }
   autoCompleteHits.forEach((hit) => {
     const { learning_type: learningType } = hit;
     if (learningType === LEARNING_TYPE_COURSE) { courses.push(hit); }
@@ -46,36 +37,6 @@ const SearchSuggestions = ({
   });
   return (
     <div className="suggestions" data-testid="suggestions">
-      {preQuerySuggestions.length > 0 && (
-        <div>
-          <div className="mb-2 ml-2 mt-1 font-weight-bold suggestions-section">
-            <FormattedMessage
-              id="search.suggestions.topRatedCourses"
-              defaultMessage="Top-rated courses"
-              description="Top-rated courses suggestion section title"
-            />
-          </div>
-          {
-            preQuerySuggestions.slice(0, MAX_NUM_PRE_QUERY_SUGGESTIONS)
-              .map((hit) => {
-                const getUrl = (course) => {
-                  const { learning_type: learningType } = course;
-                  if (learningType === LEARNING_TYPE_COURSE || learningType === LEARNING_TYPE_EXECUTIVE_EDUCATION) {
-                    return getLinkToCourse(course);
-                  }
-                  return getLinkToProgram(course);
-                };
-                return (
-                  <PrequerySearchSuggestionItem
-                    key={hit.title}
-                    url={getUrl(hit)}
-                    hit={hit}
-                  />
-                );
-              })
-          }
-        </div>
-      )}
       {courses.length > 0 && (
         <div>
           <div className="mb-2 ml-2 mt-1 font-weight-bold suggestions-section">
@@ -145,15 +106,13 @@ const SearchSuggestions = ({
           }
         </div>
       )}
-      {!preQuerySuggestions.length && (
-        <button type="button" className="btn btn-light w-100 view-all-btn" onClick={handleSubmit}>
-          <FormattedMessage
-            id="search.suggestions.viewAllResults"
-            defaultMessage="View all results"
-            description="View all results button text"
-          />
-        </button>
-      )}
+      <button type="button" className="btn btn-light w-100 view-all-btn" onClick={handleSubmit}>
+        <FormattedMessage
+          id="search.suggestions.viewAllResults"
+          defaultMessage="View all results"
+          description="View all results button text"
+        />
+      </button>
     </div>
   );
 };
@@ -166,7 +125,6 @@ SearchSuggestions.propTypes = {
   handleSubmit: PropTypes.func,
   handleSuggestionClickSubmit: PropTypes.func,
   disableSuggestionRedirect: PropTypes.bool,
-  preQueryHits: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 SearchSuggestions.defaultProps = {
@@ -174,7 +132,6 @@ SearchSuggestions.defaultProps = {
   enterpriseSlug: '',
   handleSuggestionClickSubmit: undefined,
   disableSuggestionRedirect: false,
-  preQueryHits: undefined,
 };
 
 export default SearchSuggestions;

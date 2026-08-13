@@ -59,7 +59,6 @@ export const SearchBoxBase = ({
   const [autocompleteHits, setAutocompleteHits] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [preQueryHits, setPreQueryHits] = useState([]);
   const intl = useIntl();
 
   /**
@@ -113,23 +112,15 @@ export const SearchBoxBase = ({
         attributesToRetrieve: ALGOLIA_ATTRIBUTES_TO_RETRIEVE,
       });
       if (nbHits > 0) {
-        setPreQueryHits([]);
         setAutocompleteHits(hits);
         setShowSuggestions(true);
       } else {
         // If there are no results of the suggested search, hide the empty suggestion component
         setShowSuggestions(false);
       }
-    // Display the prequery results when user clicks on search box but has not began typing
-    } else if (query === '') {
-      const { hits } = await index.search(query, {
-        filters,
-        attributesToHighlight: ['title'],
-        attributesToRetrieve: ALGOLIA_ATTRIBUTES_TO_RETRIEVE,
-      });
+    } else {
       setAutocompleteHits([]);
-      setPreQueryHits(hits);
-      setShowSuggestions(true);
+      setShowSuggestions(false);
     }
   };
   // Since the debounced method is called in a useEffect hook, use `useCallback` to account for repeated invoking of the
@@ -193,7 +184,6 @@ export const SearchBoxBase = ({
       {showSuggestions && (
         <SearchSuggestions
           enterpriseSlug={enterpriseSlug}
-          preQueryHits={preQueryHits}
           autoCompleteHits={autocompleteHits}
           handleSubmit={() => handleSubmit(searchQuery)}
           handleSuggestionClickSubmit={hit => handleSuggestionSubmit(hit)}
