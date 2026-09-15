@@ -22,7 +22,7 @@
     "bootstrap": "npm install conventional-changelog-conventionalcommits",
     "changed": "lerna changed",
     "lerna:version": "npx lerna version --conventional-commits --create-release github --no-push",
-    "i18n_extract": "fedx-scripts formatjs extract packages/**/**/*.{js,jsx,ts,tsx}"
+    "i18n_extract": "fedx-scripts formatjs extract \"packages/*/src/**/*.{js,jsx,ts,tsx}\""
   },
   "devDependencies": {
     "@commitlint/config-conventional": "20.5.0",
