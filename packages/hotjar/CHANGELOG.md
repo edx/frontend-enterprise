@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.8](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-hotjar@7.2.7...@2uinc/frontend-enterprise-hotjar@7.2.8) (2026-09-22)
+
+**Note:** Version bump only for package @2uinc/frontend-enterprise-hotjar
+
+
+
+
+
 ## [7.2.7](https://github.com/edx/frontend-enterprise/compare/@2uinc/frontend-enterprise-hotjar@7.2.6...@2uinc/frontend-enterprise-hotjar@7.2.7) (2026-08-13)
 
 **Note:** Version bump only for package @2uinc/frontend-enterprise-hotjar
